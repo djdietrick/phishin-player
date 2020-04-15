@@ -1,11 +1,13 @@
 {
   "name": "phishin-player",
   "version": "0.1.0",
+  "main": "./build/index.js",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "server": "env-cmd -f ./config/dev.env nodemon ./server/server.ts",
+    "server-prod": "env-cmd -f ./config/dev.env nodemon ./build/server.js",
     "server-build": "env-cmd -f ./config/dev.env tsc"
   },
   "dependencies": {

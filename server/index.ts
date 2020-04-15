@@ -35,13 +35,10 @@ export class PhishApp {
     }
 
     private initRouters(): void {
-        this.express.use(MusicRouter());
+        this.express.use('/api', MusicRouter());
 
         this.express.get('/', (req: express.Request, res: express.Response) => {
             res.sendFile('index.html', {root: publicDir});
         });
     }
 }
-
-// const app = new PhishApp();
-// app.listen(3000);
