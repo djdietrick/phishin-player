@@ -6,9 +6,15 @@
     box-sizing: inherit;
 }
 
+$bp-mobile: 62.5em; // 800px
+
 html {
     // This defines what 1rem is
     font-size: 62.5%;
+
+    @media only screen and (max-width: $bp-mobile) {
+        font-size: 50%;
+    }
 }
 
 body {

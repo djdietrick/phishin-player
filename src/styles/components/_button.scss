@@ -4,12 +4,12 @@
     &:visited {
         text-transform: uppercase;
         text-decoration: none;
-        padding: 1rem 2rem;
+        padding: 0.7rem 1rem;
         display: inline-block;
-        border-radius: 10rem;
+        border-radius: 1rem;
         transition: all .2s;
         position: relative;
-        font-size: $default-font-size;
+        font-size: 1.5rem;
         background-color: $color-primary;
         border: 1.5px solid white;
         color: white;

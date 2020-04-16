@@ -11,19 +11,33 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    show: null
+    show: null,
+    searchError: null
   },
   getters: {
-    getShow: state => state.show
+    getShow: state => state.show,
+    getSearchError: state => state.searchError
   },
   mutations: {
-    setShow: (state, show) => (state.show = show)
+    setShow: (state, show) => (state.show = show),
+    setSearchError: (state, error) => (state.searchError = error)
   },
   actions: {
     async getRandomShow({commit}) {
       const res = await a.get('/random');
-      console.log(res.data);
       commit('setShow', res.data);
+    },
+    async getShowOnDate({commit}, date) {
+      a.get(`/show/${date}`)
+        .then(res => {
+          commit('setShow', res.data);
+        })
+        .catch(err => {
+          commit('setSearchError', `No show on ${date}`);
+        });
+    },
+    clearError({commit}) {
+      commit('setSearchError', null);
     }
   },
   modules: {
