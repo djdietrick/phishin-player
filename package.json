@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "hls.js": "^0.13.2",
+    "http": "0.0.1-security",
     "https": "^1.0.0",
     "vue": "^2.6.11",
     "vue-aplayer": "^1.6.1",
