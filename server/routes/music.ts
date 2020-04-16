@@ -1,8 +1,8 @@
 import {Router, Request, Response} from 'express';
 import axios from 'axios';
 const moment = require('moment');
-const imageSearch = require('image-search-google');
-const client = new imageSearch(process.env.CSEID, process.env.GOOGLE_API_KEY);
+//const imageSearch = require('image-search-google');
+//const client = new imageSearch(process.env.CSEID, process.env.GOOGLE_API_KEY);
 
 export function MusicRouter(router: Router = Router()): Router {
     router.get('/random', getRandomShow);
@@ -66,10 +66,10 @@ async function getShowOnDate(req: Request, res: Response) {
 }
 
 async function getShowInfo(showId: string) {
-    const phishNetUrl = `https://api.phish.net/v3/shows/links?apikey=${process.env.PHISHNET_API_KEY}&showId=${showId}`;
+    //const phishNetUrl = `https://api.phish.net/v3/shows/links?apikey=${process.env.PHISHNET_API_KEY}&showId=${showId}`;
 
-    const a = axios.create();
-    const response = await a.get(phishNetUrl);
+   // const a = axios.create();
+    //const response = await a.get(phishNetUrl);
     //console.log(response.data);
 }
 
