@@ -77,6 +77,6 @@ async function getCoverArt(date: string) {
     const options = {
         page: 1
     }
-    const res = await client.search('Phish ' + date, options);
+    //const res = await client.search('Phish ' + date, options);
     //console.log(res);
 }
