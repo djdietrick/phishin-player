@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios';
 
-console.log(process.env.VUE_APP_SERVER_URL);
 const a = axios.create({
   baseURL: process.env.VUE_APP_SERVER_URL
 })
