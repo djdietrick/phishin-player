@@ -19,6 +19,8 @@
       :list="show.tracks"
       theme="#143cece7"
     />
+
+    <a class="btn btn--home" href="http://dietrick.dev">Return to Dietrick.dev</a>
   </div>
 </template>
 
