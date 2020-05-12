@@ -14,16 +14,21 @@
 
       </div>
     </div> 
-    <aplayer
+    <AudioPlayer
+      :queue="show.tracks"/>
+
+    <!-- <aplayer
+      preload="auto"
       :music="show.tracks[0]"
       :list="show.tracks"
       theme="#143cece7"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
 import APlayer from 'vue-aplayer';
+import AudioPlayer from './components/AudioPlayer';
 import {mapActions, mapGetters} from 'vuex';
 export default {
   name: 'App',
@@ -33,7 +38,8 @@ export default {
     }
   },
   components: {
-    APlayer
+    APlayer,
+    AudioPlayer
   },
   computed: {
     ...mapGetters({
