@@ -8,7 +8,8 @@
     "build": "vue-cli-service build",
     "server": "env-cmd -f ./config/dev.env nodemon ./server/server.ts",
     "server-build": "env-cmd -f ./config/dev.env tsc",
-    "start": "env-cmd -f ./config/dev.env nodemon ./build/server.js"
+    "start": "env-cmd -f ./config/dev.env nodemon ./build/server.js",
+    "getallshows": "env-cmd -f ./config/dev.env ts-node ./server/getallshows.ts"
   },
   "dependencies": {
     "axios": "^0.19.2",
