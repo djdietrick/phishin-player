@@ -1,18 +1,16 @@
 <<template>
-    <div class="aplayer">
-        <div class="aplayer-body">
-            <Icon
-            
-            />
-            <audio ref="audio"></audio>
-        </div>
+    <div class="dashplayer">
+       <Queue />
+        <Icon />
+        <Controller />
+        <audio ref="audio"></audio>
     </div>
 </template>
 
 <script>
-import Controller from './AudioPlayer-controller';
-import Icon from "./AudioPlayer-icon";
-import Queue from "./AudioPlayer-queue";
+import Controller from './DashPlayer-controller';
+import Icon from "./DashPlayer-icon";
+import Queue from "./DashPlayer-queue";
 
 const REPEAT = {
     NO_REPEAT: 'no-repeat',
@@ -198,6 +196,26 @@ export default AudioPlayer;
 
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
+
+.dashplayer {
+    height: 90vh;
+    width: 90vw;
+    background-color: #eee;
+    
+    display: grid;
+    grid-template-rows: 1fr 7fr;
+    grid-template-columns: 1fr 7fr;
+
+    .queue {
+        grid-row: 2 / -1;
+        grid-column: 1 / -1;
+    }
+
+    .controller {
+        grid-row: 1 / 2;
+        grid-column: 2 / -1;
+    }
+}
 
 </style>

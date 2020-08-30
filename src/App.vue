@@ -28,7 +28,7 @@
 
 <script>
 import APlayer from 'vue-aplayer';
-import AudioPlayer from './components/AudioPlayer';
+import AudioPlayer from './components/DashPlayer';
 import {mapActions, mapGetters} from 'vuex';
 export default {
   name: 'App',
