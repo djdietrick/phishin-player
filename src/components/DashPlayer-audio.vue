@@ -94,7 +94,7 @@ export default {
         this.initAudio();
         if(this.show.tracks) {
             this.audio.src = this.show.tracks[0].src
-            this.audio.play();
+            //this.audio.play();
         }
 
         bus.$on('timeSet', (percentage) => {
