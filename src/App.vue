@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div class="header">
-      <h1 class="heading-primary">{{show.date}}: {{show.venue}}, {{show.location}}</h1>
       <div class="tools">
         <div class="form__group">
             <label for="title" class="form__label">Date</label>
@@ -27,7 +26,6 @@
 </template>
 
 <script>
-import APlayer from 'vue-aplayer';
 import AudioPlayer from './components/DashPlayer';
 import {mapActions, mapGetters} from 'vuex';
 export default {
@@ -38,7 +36,6 @@ export default {
     }
   },
   components: {
-    APlayer,
     AudioPlayer
   },
   computed: {
@@ -75,18 +72,13 @@ export default {
 }
 
 .header {
+  margin-top: 2rem;
   position: relative;
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-items: start;
   align-items: flex-end;
   margin-bottom: 1rem;
-
-  @media only screen and (max-width: $bp-mobile) {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
-      justify-items: center;
-  }
 }
 
 .tools {
@@ -111,8 +103,8 @@ export default {
         font-size: 1.5rem;
         color: inherit;
         padding: 1rem 1rem;
-        border-radius: 2px;
-        background-color: rbga(white, .5);
+        border-radius: 4px;
+        background-color: rgba($color-area, 1);
         border: none;
         border-bottom: 2px solid $color-primary;
         //width: 90%;

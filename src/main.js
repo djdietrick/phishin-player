@@ -7,6 +7,8 @@ import 'firebase/functions';
 
 Vue.component('aplayer', APlayer);
 
+export const bus = new Vue();
+
 Vue.config.productionTip = false
 
 firebase.initializeApp({
@@ -18,6 +20,8 @@ firebase.initializeApp({
   messagingSenderId: "959681181393",
   appId: "1:959681181393:web:6b6e7502580f47f450f7f0"
 });
+
+Vue.config.ignoredElements = [/^sl-/];
 
 export const functions = firebase.functions();
 

@@ -13,17 +13,30 @@ export default new Vuex.Store({
   state: {
     show: null,
     playIndex: 0,
-    searchError: null
+    searchError: null,
+    isPlaying: false,
+    playStats: {
+      duration: 0.0,
+      time: 0.0
+    }
   },
   getters: {
     getShow: state => state.show,
     getIndex: state => state.playIndex,
-    getSearchError: state => state.searchError
+    getSearchError: state => state.searchError,
+    isPlaying: state => state.isPlaying,
+    getPlayStats: state => state.playStats,
+    getDuration: state => state.playStats.duration,
+    getTime: state => state.playStats.time
   },
   mutations: {
     setShow: (state, show) => (state.show = show),
     setIndex: (state, index) => (state.playIndex = index),
-    setSearchError: (state, error) => (state.searchError = error)
+    setSearchError: (state, error) => (state.searchError = error),
+    togglePlaying: (state) => (state.isPlaying = !state.isPlaying),
+    setIsPlaying: (state, p) => (state.isPlaying = p),
+    setDuration: (state, d) => (state.playStats.duration = d),
+    setTime: (state, t) => (state.playStats.time = t)
   },
   actions: {
     async getRandomShow({commit}) {
@@ -45,6 +58,18 @@ export default new Vuex.Store({
     },
     clearError({commit}) {
       commit('setSearchError', null);
+    },
+    togglePlaying({commit}) {
+      commit('togglePlaying');
+    },
+    setIsPlaying({commit}, p) {
+      commit('setIsPlaying', p);
+    },
+    setDuration({commit}, d) {
+      commit('setDuration', d);
+    },
+    setTime({commit}, t) {
+      commit('setTime', t);
     }
   },
   modules: {

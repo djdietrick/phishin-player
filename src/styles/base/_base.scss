@@ -6,7 +6,7 @@
     box-sizing: inherit;
 }
 
-$bp-mobile: 62.5em; // 800px
+$bp-mobile: 50em;
 
 html {
     // This defines what 1rem is
@@ -20,7 +20,11 @@ html {
 body {
     box-sizing: border-box;
     background-color: $color-background;
-    padding: 0;
+    padding: 3rem;
+
+    @media only screen and (max-width: $bp-mobile) {
+        padding: 0 3rem;
+    }
 
     /* width */
     ::-webkit-scrollbar {

@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap');
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     /*font-size: 16px;*/
     line-height: 1.7;
     color: $color-primary;
-    padding: 3rem;
 }
 
-.heading-primary {
+h1 {
     color: $color-primary;
     text-transform: uppercase;
     font-weight: 300;
@@ -17,11 +16,15 @@ body {
     backface-visibility: hidden;
 }
 
-.heading-secondary {
-    font-size: 3.5rem;
-    font-weight: 400;
+h2 {
+    color: $color-primary;
+    font-size: 2rem;
+    font-weight: 100;
     display: inline-block;
-    color: black;
     letter-spacing: .1rem;
+}
 
+p { 
+    font-size: $default-font-size;
+    display: inline-block;
 }

@@ -19,7 +19,8 @@ export const getRandomShow = functions.https.onCall((data, context) => {
                 tracks.push({
                     title: track.title,
                     artist: "Phish",
-                    src: track.mp3
+                    src: track.mp3,
+                    duration: track.duration
                 });
             } 
 
@@ -46,7 +47,8 @@ export const getShowOnDate = functions.https.onCall((data, context) => {
                 tracks.push({
                     title: track.title,
                     artist: "Phish",
-                    src: track.mp3
+                    src: track.mp3,
+                    duration: track.duration
                 });
             } 
         
