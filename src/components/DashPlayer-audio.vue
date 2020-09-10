@@ -6,10 +6,18 @@
 import {mapGetters, mapActions} from 'vuex';
 import {bus} from '../main';
 export default {
+    data() {
+        return {
+            audio: null,
+            duration: 0.0,
+            time: 0.0,
+            nextSongAudio: null
+        }
+    },
     computed: {
-        audio() {
-            return this.$refs.audio;
-        },
+        // audio() {
+        //     return this.$refs.audio;
+        // },
         ...mapGetters({
             show: 'getShow',
             index: 'getIndex',
@@ -38,6 +46,11 @@ export default {
             //     this.audio.addEventListener(event, e => this.$emit(event, e))
             // })
 
+            this.audio = this.$refs.audio;
+
+            this.addEventListeners();
+        },
+        addEventListeners() {
             this.audio.addEventListener('play', this.onAudioPlay)
             this.audio.addEventListener('pause', this.onAudioPause)
             // this.audio.addEventListener('abort', this.onAudioPause)
@@ -53,11 +66,11 @@ export default {
         },
         onAudioDurationChange(e) {
             bus.$emit('durationUpdate', this.audio.duration);
-            //this.setDuration(this.audio.duration);
+            this.duration = this.audio.duration;
         },
         onAudioTimeUpdate(e) {
             bus.$emit('timeUpdate', this.audio.currentTime);
-            //this.setTime(this.audio.currentTime);
+            this.time = this.audio.currentTime;
         }, 
         onAudioPause(e) {
             this.setIsPlaying(false)
@@ -66,17 +79,23 @@ export default {
             this.setIsPlaying(true)
         },
         onAudioEnded() {
-            if(this.index === this.show.tracks.length - 1) {
-                this.selectSong(0);
-            }
-            else {
-                this.selectSong(this.index + 1);
-            }
+            this.selectSong(this.getNextSongIndex());
+        },
+        getNextSongIndex() {
+            if(this.index === this.show.tracks.length - 1) return 0;
+            return this.index + 1;
         }
     },
     watch: {
         index: function(i) {
-            this.audio.src = this.show.tracks[i].src
+            if(this.nextSongAudio && this.nextSongAudio.index === i)
+            {
+                this.audio = this.nextSongAudio.audio;
+                this.addEventListeners();
+            }
+            else
+                this.audio.src = this.show.tracks[i].src
+            this.nextSongAudio = null;
             this.audio.play();
         },
         show: function(s) {
@@ -88,6 +107,15 @@ export default {
         isPlaying: function(p) {
             if(p) this.audio.play();
             else this.audio.pause();
+        },
+        time: function(t) {
+            if(this.duration - this.time < 3) {
+                this.nextSongAudio = {
+                    index: this.getNextSongIndex(),
+                    audio: document.createElement('audio')
+                }
+                this.nextSongAudio.audio.src = this.show.tracks[this.nextSongAudio.index].src
+            }
         }
     },
     mounted() {
