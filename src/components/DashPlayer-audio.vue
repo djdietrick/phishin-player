@@ -1,5 +1,5 @@
 <template>
-    <audio ref="audio"></audio>
+    <audio ref="audio" id="audio"></audio>
 </template>
 
 <script>

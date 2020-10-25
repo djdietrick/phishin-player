@@ -12,6 +12,7 @@
     "getallshows": "env-cmd -f ./config/dev.env ts-node ./server/getallshows.ts"
   },
   "dependencies": {
+    "@foobar404/wave": "^1.2.7",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",

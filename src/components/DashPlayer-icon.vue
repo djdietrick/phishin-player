@@ -1,16 +1,27 @@
 <template>
     <div class="icon">
-        <sl-icon name="soundwave"></sl-icon>
+        <canvas id="waveform"></canvas>
     </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex';
+import Wave from '@foobar404/wave';
+
 export default {
     computed: {
         ...mapGetters({
             isPlaying: 'isPlaying'
         })
+    },
+    mounted() {
+        let wave = new Wave();
+        wave.fromElement("audio","waveform", {
+            type: "flower",
+            colors: [
+                "#004DCC"
+            ]
+        });
     }
 }
 </script>
