@@ -49,8 +49,12 @@ export default AudioPlayer;
     }
 
     .controller {
+        @media only screen and (max-width: $bp-mobile) {
+            grid-column: 1 / -1;
+        }
         grid-row: 1 / 2;
         grid-column: 2 / -1;
+        padding-top: 1rem;
     }
 }
 
