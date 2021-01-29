@@ -1,7 +1,7 @@
 <<template>
     <div class="dashplayer">
        <Queue />
-        <Icon />
+        <Icon v-if="show-icon"/>
         <Controller />
         <Audio />
     </div>
@@ -19,6 +19,11 @@ const AudioPlayer = {
         Icon,
         Queue,
         Audio
+    },
+    computed: {
+        showIcon() {
+            return !window.matchMedia('(max-width: 767px)').matches;
+        }
     }
 }
 
@@ -29,7 +34,7 @@ export default AudioPlayer;
 <style lang="scss" scoped>
 @import "../styles/main.scss";
 .dashplayer {
-    height: 90vh;
+    height: 87vh;
     width: 90vw;
     background-color: $color-area;
     border-radius: 2rem;

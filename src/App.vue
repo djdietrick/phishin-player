@@ -69,27 +69,29 @@ export default {
   text-align: center;
   color: #2c3e50;
   //margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {
-  margin-top: 2rem;
   position: relative;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  justify-items: start;
-  align-items: flex-end;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; 
 }
 
 .tools {
-  position: absolute;
-  right: 1%;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
 
   @media only screen and (max-width: $bp-mobile) {
        margin-top: 2rem;
        position: relative;
+
+       .btn {
+         height: min-content;
+         align-self: flex-end;
+       }
     }
 }
 
