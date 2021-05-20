@@ -27,25 +27,6 @@ export default {
     methods: {
         ...mapActions(['setIsPlaying', 'setTime', 'setDuration', 'selectSong']),
         initAudio() {
-            // const mediaEvents = [
-            //     'abort',
-            //     'canplay', 'canplaythrough',
-            //     'durationchange',
-            //     'emptied', 'encrypted', 'ended', 'error',
-            //     'interruptbegin', 'interruptend',
-            //     'loadeddata', 'loadedmetadata', 'loadstart',
-            //     'mozaudioavailable',
-            //     'pause', 'play', 'playing', 'progress',
-            //     'ratechange',
-            //     'seeked', 'seeking', 'stalled', 'suspend',
-            //     'timeupdate',
-            //     'volumechange',
-            //     'waiting',
-            // ]
-            // mediaEvents.forEach(event => {
-            //     this.audio.addEventListener(event, e => this.$emit(event, e))
-            // })
-
             this.audio = this.$refs.audio;
 
             this.addEventListeners();
@@ -53,16 +34,16 @@ export default {
         addEventListeners() {
             this.audio.addEventListener('play', this.onAudioPlay)
             this.audio.addEventListener('pause', this.onAudioPause)
+            this.audio.addEventListener('durationchange', this.onAudioDurationChange)
+            this.audio.addEventListener('timeupdate', this.onAudioTimeUpdate)
+            this.audio.addEventListener('ended', this.onAudioEnded)
             // this.audio.addEventListener('abort', this.onAudioPause)
             // this.audio.addEventListener('waiting', this.onAudioWaiting)
             // this.audio.addEventListener('canplay', this.onAudioCanplay)
             //this.audio.addEventListener('progress', this.onAudioProgress)
-            this.audio.addEventListener('durationchange', this.onAudioDurationChange)
+            // this.audio.addEventListener('volumechange', this.onAudioVolumeChange)
             // this.audio.addEventListener('seeking', this.onAudioSeeking)
             // this.audio.addEventListener('seeked', this.onAudioSeeked)
-            this.audio.addEventListener('timeupdate', this.onAudioTimeUpdate)
-            // this.audio.addEventListener('volumechange', this.onAudioVolumeChange)
-            this.audio.addEventListener('ended', this.onAudioEnded)
         },
         onAudioDurationChange(e) {
             bus.$emit('durationUpdate', this.audio.duration);

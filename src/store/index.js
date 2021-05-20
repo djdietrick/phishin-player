@@ -3,10 +3,6 @@ import Vuex from 'vuex'
 import axios from 'axios';
 import {functions} from '../main.js';
 
-// const a = axios.create({
-//   baseURL: process.env.VUE_APP_SERVER_URL
-// })
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -71,7 +67,5 @@ export default new Vuex.Store({
     setTime({commit}, t) {
       commit('setTime', t);
     }
-  },
-  modules: {
   }
 })
