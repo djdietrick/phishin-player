@@ -15,7 +15,7 @@
     "@foobar404/wave": "^1.2.7",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^7.19.0",
     "hls.js": "^0.13.2",
     "http": "0.0.1-security",
